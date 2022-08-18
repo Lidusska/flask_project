@@ -1,0 +1,6 @@
+.vagrant/*
+.venv/*
+venv/*
+env/*
+__pycache__/*
+mdblog/__pycache__/*
