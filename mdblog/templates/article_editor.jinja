@@ -1,0 +1,20 @@
+{% extends "_main.jinja" %}
+
+{% block title %} New Article {% endblock %}
+
+{% block main %}
+
+<form action="{{ url_for("add_article") }}" method="post">
+    {{ form.csrf_token }}
+    <p>
+        {{ form.title.label }}
+        {{ form.title() }}
+    </p>
+    <p>
+        {{ form.content.label }}
+        {{ form.content() }}
+    </p>
+    <input type="submit" value="save">
+</form>
+
+{% endblock %}
