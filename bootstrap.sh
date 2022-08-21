@@ -23,3 +23,9 @@ python3 get-pip.py
 
 # install virtualenv
 pip install virtualenv
+
+# flask
+pip install flask
+
+# net-tools
+apt-get install net-tools

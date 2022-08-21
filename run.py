@@ -11,6 +11,7 @@ def start():
 def init():
     init_db(flask_app)
 
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         commad = sys.argv[1]
