@@ -1,0 +1,170 @@
+------------------------------ postup pokaždé ----------- >
+
+vagrant up
+vagrant ssh
+cd /vagrant/
+virtualenv venv --always-copy
+. venv/bin/activate
+python run.py start
+
+------------------------------ postup pokaždé ----------- <
+
+------------------------------ postup jen poprvé ----------- >
+
+pip -V - musíme mít pip, jinak nainstalovat
+sudo apt-get install python3-pip
+sudo pip install virtualenv
+
+------------------- git >
+git config --global user.name "Lida"
+git config --global user.email "lida.chroma@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "lida.chroma@gmail.com"
+cat ~/.ssh/id_rsa.pub
+dát do githubu jako nový klíč
+spustit git remote add origin git@github.com:Lidusska/flask_project.git
+
+------------------- git <
+
+virtualenv venv --always-copy
+. venv/bin/activate
+
+pip install -r requirements.txt
+
+export MDBLOG_CONFIG=/vagrant/configs/development.py
+
+------------------- alembic >
+
+pip install alembic
+alembic init alembic
+alembic revision -m "Create users table"
+alembic upgradea head
+
+------------------- alembic <
+
+python run.py init
+python run.py start
+
+------------------------------ postup jen poprvé ----------- <
+
+
+debug mode:
+configs/development.py --> DEBUG = True/False
+run.py --> flask_app.run(host, debug=debug)
+
+
+
+
+
+
+
+
+
+
+deactivate
+exit
+vagrant halt
+
+
+
+
+
+
+cd c:\dev\python\....
+vagrant up
+vagrant ssh
+
+
+cd /vagrant/
+. env/bin/activate
+
+
+---------------------------------------------------
+
+1. založit adresář pro práci - třeba c:\dev\python\projekt1 - cokoliv
+
+2. cmd (možná bude třeba spustit jako administrátor, ale to zkusíme, myslím, že jsem to tak pouštět nemusela, uvidíme)
+cd c:\dev\python\projekt1
+vagrant init
+zeditovat c:\dev\python\projekt1\vagrantfile (texťák bez přípony)
+řádek config.vm.box = "base" nahradit za:
+
+  config.vm.box = "ubuntu/jammy64"
+ 
+  config.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+      v.cpus = 4
+  end
+ 
+  config.vm.network "public_network", bridge: " .... "
+ 
+  #install & configure software
+  config.vm.provision :shell, :path => "bootstrap.sh"
+ 
+
+vagrant up
+možná bude potřeba nastavit síťový adaptér - viz video https://skillmea.cz/student/kurzy/flask-python-mikroframework/kapitoly/104-nastavenie-dev-nastrojov-part1
+okopčím název vybraného adaptéru:
+
+
+
+vagrant ssh
+
+adresář /vagrant/ = c:\dev\python\projekt1
+
+pip -V - musíme mít pip, jinak nainstalovat
+
+sudo apt-get install python3-pip
+
+sudo pip install virtualenv
+
+cd /vagrant/
+
+virtualenv venv --always-copy
+
+. venv/bin/activate
+
+pip install -r requirements.txt
+
+
+export MDBLOG_CONFIG=/vagrant/configs/development.py
+
+------------------- git >
+git config --global user.name "Lida"
+git config --global user.email "lida.chroma@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "lida.chroma@gmail.com"
+cat ~/.ssh/id_rsa.pub
+dát do githubu jako nový klíč
+spustit git remote add origin git@github.com:Lidusska/flask_project.git
+
+------------------- git <
+
+------------------- alembic >
+
+pip install alembic
+alembic init alembic
+alembic revision -m "Create users table"
+alembic upgradea head
+
+------------------- alembic <
+
+
+deactivate
+
+exit
+
+vagrant halt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

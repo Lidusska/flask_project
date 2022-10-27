@@ -20,4 +20,4 @@ if __name__ == "__main__":
         elif commad == "init":
             init()
     else:
-        print("usage:\n\n\trun.py [ start | init ]")
+        print("usage:\n\n\trun.
